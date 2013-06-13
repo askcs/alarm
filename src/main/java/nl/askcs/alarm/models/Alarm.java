@@ -53,7 +53,7 @@ public class Alarm {
      * after this amount of seconds.
      */
     @DatabaseField
-    private int timeToCancelBeforeAlarmStarts;
+    private int countdownLengthBeforeAlarmStarts;
 
     /**
      * The amount of acquaintances to alert. This is specified by the user
@@ -66,4 +66,90 @@ public class Alarm {
      */
     @DatabaseField
     private int amountOfVolunteers;
+
+    public Alarm(int id, String title, String messageForVIP, String messageForAcquaintances,
+                 String messageForVolunteers, boolean enterPinToCancel, int timeToCancelBeforeAlarmStarts,
+                 int amountOfAcquaintances, int amountOfVolunteers) {
+        this.id = id;
+        this.title = title;
+        this.messageForVIP = messageForVIP;
+        this.messageForAcquaintances = messageForAcquaintances;
+        this.messageForVolunteers = messageForVolunteers;
+        this.enterPinToCancel = enterPinToCancel;
+        this.countdownLengthBeforeAlarmStarts = timeToCancelBeforeAlarmStarts;
+        this.amountOfAcquaintances = amountOfAcquaintances;
+        this.amountOfVolunteers = amountOfVolunteers;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getMessageForVIP() {
+        return messageForVIP;
+    }
+
+    public void setMessageForVIP(String messageForVIP) {
+        this.messageForVIP = messageForVIP;
+    }
+
+    public String getMessageForAcquaintances() {
+        return messageForAcquaintances;
+    }
+
+    public void setMessageForAcquaintances(String messageForAcquaintances) {
+        this.messageForAcquaintances = messageForAcquaintances;
+    }
+
+    public String getMessageForVolunteers() {
+        return messageForVolunteers;
+    }
+
+    public void setMessageForVolunteers(String messageForVolunteers) {
+        this.messageForVolunteers = messageForVolunteers;
+    }
+
+    public boolean shouldEnterPinToCancel() {
+        return enterPinToCancel;
+    }
+
+    public void setEnterPinToCancel(boolean enterPinToCancel) {
+        this.enterPinToCancel = enterPinToCancel;
+    }
+
+    public int getCountdownLengthBeforeAlarmStarts() {
+        return countdownLengthBeforeAlarmStarts;
+    }
+
+    public void setCountdownLengthBeforeAlarmStarts(int countdownLengthBeforeAlarmStarts) {
+        this.countdownLengthBeforeAlarmStarts = countdownLengthBeforeAlarmStarts;
+    }
+
+    public int getAmountOfAcquaintances() {
+        return amountOfAcquaintances;
+    }
+
+    public void setAmountOfAcquaintances(int amountOfAcquaintances) {
+        this.amountOfAcquaintances = amountOfAcquaintances;
+    }
+
+    public int getAmountOfVolunteers() {
+        return amountOfVolunteers;
+    }
+
+    public void setAmountOfVolunteers(int amountOfVolunteers) {
+        this.amountOfVolunteers = amountOfVolunteers;
+    }
 }
