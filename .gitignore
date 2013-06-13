@@ -1,0 +1,21 @@
+# generated and compiled folders
+bin/
+target/
+gen/
+gen-external-apklibs/
+out/
+classes/
+tmp/
+
+# local files/folders
+local.properties
+res/values/private.xml
+keystore/
+*.db
+
+# IDE files
+.classpath
+.project
+*.iml
+.settings/
+.idea/
