@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Themes -->
+    <style name="Theme.Alarm" parent="Theme.Sherlock.Light.DarkActionBar">
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+    </style>
+
+    <style name="Theme.Alarm.App.ActionBar" parent="Widget.Sherlock.ActionBar">
+        <!--
+            Both `android:xyz` and `xyz` need to be set to support 4.x and 2.x devices.
+        -->
+        <item name="android:displayOptions">showHome|useLogo</item>
+        <item name="displayOptions">showHome|useLogo</item>
+        <item name="android:background">@color/alarm_taupe</item>
+        <item name="background">@color/alarm_taupe</item>
+    </style>
+
+    <!-- Tab styles -->
+    <style name="CustomTabPageIndicator" parent="Widget.TabPageIndicator">
+        <item name="android:background">@drawable/alarm_tab_indicator</item>
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:divider">@color/alarm_mine_shaft</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:fadingEdge">horizontal</item>
+    </style>
+    <style name="CustomTabPageIndicator.Text">
+        <!--<item name="android:textColor">@drawable/text_tab_bridal_heath_sandy_brown</item>-->
+        <item name="android:textColor">@color/alarm_ecru_white</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+
+        <!-- different capitalize attributes for different versions-->
+        <item name="android:textAllCaps">true</item>            <!-- >= 14 -->
+        <item name="android:inputType">textCapCharacters</item> <!-- >= 3 && < 14 -->
+        <item name="android:capitalize">characters</item>       <!-- < 3 -->
+    </style>
+</resources>

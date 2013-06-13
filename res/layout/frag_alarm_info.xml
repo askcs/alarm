@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/striped_background">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_height="wrap_content"
+                  android:layout_width="match_parent"
+                  android:background="@color/alarm_ecru_white"
+                  android:layout_margin="@dimen/activity_horizontal_margin"
+                  android:orientation="vertical">
+
+        <LinearLayout style="@style/Widget.Alarm.InfoBox">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_avatar"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="2dp"
+                android:src="@android:drawable/star_big_on"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/estimated_time"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="I HAVE A LOW BLOODSUGAR"
+                    style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header.Big"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            style="@style/Widget.Alarm.InfoBox">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
+                    android:text="If I got/am"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- Trembling"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- Blue lips"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="-->"/>
+
+            <Button
+                android:id="@+id/action_button_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_button_red"
+                android:padding="10dp"
+                android:layout_marginLeft="6dp"
+                android:drawableTop="@android:drawable/ic_menu_call"
+                android:text="Call 112"
+                android:textColor="@color/alarm_ecru_white"
+                />
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/Widget.Alarm.InfoBox">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
+                android:text="Help on the way"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="These people are on their way to help"/>
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+        <fragment
+            class="nl.askcs.alarm.fragments.HelperFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+        <LinearLayout style="@style/Widget.Alarm.InfoBox">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_avatar"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="2dp"
+                android:src="@android:drawable/star_big_on"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/estimated_time"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="I HAVE A LOW BLOODSUGAR"
+                    style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header.Big"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+    </LinearLayout>
+</ScrollView>

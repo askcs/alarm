@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Alarm App (The Voice)</string>
+
+    <!-- Activity names -->
+    <string name="activity_label_main">Alarm App (The Voice)</string>
+    <string name="activity_label_alarm">Alarm!</string>
+    <string name="activity_label_settings">Instellingen</string>
+
+    <!-- Main Activity titles for ViewPager -->
+    <string name="frag_main_initiate_alarm_title">Alarm</string>
+    <string name="frag_main_helpers_title">Helpers</string>
+    <string name="frag_main_maps_title">Kaart</string>
+    <string name="frag_main_messages_overview_title">Berichten</string>
+    <string name="frag_main_notifications_title">Meldingen</string>
+
+    <!-- Alarm Activity titles for ViewPager -->
+    <string name="frag_alarm_info_title">Info</string>
+    <string name="frag_alarm_maps_title">Kaart</string>
+    <string name="frag_alarm_messages_overview_title">Berichten</string>
+    <string name="frag_alarm_notifications_title">Notificaties</string>
+
+    <!-- menu/main.xml -->
+    <string name="menu_settings">Instellingen</string>
+
+    <!-- menu/alarm.xml -->
+    <string name="menu_cancel_alarm">Alarm annuleren</string>
+
+</resources>

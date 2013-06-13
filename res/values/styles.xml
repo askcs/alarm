@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Alarm"></style>
+    <style name="Widget.Alarm.Button">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:textColor">@color/alarm_ecru_white</item>
+    </style>
+    <style name="Widget.Alarm.Button.Red">
+        <item name="android:background">@drawable/gradient_button_red</item>
+    </style>
+    <style name="Widget.Alarm.Button.Blue">
+        <item name="android:background">@drawable/gradient_button_blue</item>
+    </style>
+    <style name="Widget.Alarm.Button.Taupe">
+        <item name="android:background">@drawable/gradient_button_taupe</item>
+        <item name="android:layout_height">?android:attr/listPreferredItemHeight</item>
+    </style>
+
+    <style name="Widget.Alarm.InfoBox">
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="Widget.Alarm.InfoBoxDivider">
+        <item name="android:background">@color/alarm_mine_shaft</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Widget.Alarm.TextView"></style>
+    <style name="Widget.Alarm.TextView.AlarmInfoBox"></style>
+    <style name="Widget.Alarm.TextView.AlarmInfoBox.Header">
+        <item name="android:textColor">@color/alarm_boston_blue</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Widget.Alarm.TextView.AlarmInfoBox.Header.Big">
+        <item name="android:textColor">@color/alarm_boston_blue</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
