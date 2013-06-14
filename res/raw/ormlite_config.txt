@@ -1,0 +1,73 @@
+#
+# generated on 2013/06/14 09:42:10
+#
+# --table-start--
+dataClass=nl.askcs.alarm.models.Alarm
+tableName=alarm
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=messageForVIP
+# --field-end--
+# --field-start--
+fieldName=messageForAcquaintances
+# --field-end--
+# --field-start--
+fieldName=messageForVolunteers
+# --field-end--
+# --field-start--
+fieldName=enterPinToCancel
+# --field-end--
+# --field-start--
+fieldName=countdownLengthBeforeAlarmStarts
+# --field-end--
+# --field-start--
+fieldName=amountOfAcquaintances
+# --field-end--
+# --field-start--
+fieldName=amountOfVolunteers
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=nl.askcs.alarm.models.Helper
+tableName=helper
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=available
+# --field-end--
+# --field-start--
+fieldName=lat
+# --field-end--
+# --field-start--
+fieldName=lon
+# --field-end--
+# --field-start--
+fieldName=distanceToUser
+# --field-end--
+# --field-start--
+fieldName=travelTimeToUser
+# --field-end--
+# --field-start--
+fieldName=phoneNumber
+# --field-end--
+# --field-start--
+fieldName=canUseMessageFunctionality
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
