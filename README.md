@@ -22,7 +22,7 @@ cd alarm
 ### IntelliJ
 
 * press <kbd>Open Project</kbd>
-* select `team-up/pom.xml`
+* select `alarm/pom.xml`
 
 ### Eclipse
 
