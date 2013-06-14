@@ -1,14 +1,12 @@
 package nl.askcs.alarm.ui.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 import nl.askcs.alarm.R;
 import nl.askcs.alarm.models.Alarm;
+import nl.askcs.alarm.ui.TabFragmentAdapter;
 import nl.askcs.alarm.ui.fragments.*;
 
 import java.sql.SQLException;
@@ -22,11 +20,9 @@ import java.sql.SQLException;
  * (5) see a list of received notifications ({@link nl.askcs.alarm.ui.fragments.NotificationFragment}).
  *
  * @author : Leon Joosse
- *
  */
 public class MainActivity extends BaseActivity {
 
-    private MainActivityFragmentAdapter fragmentAdapter;
     private ViewPager viewPager;
     private PageIndicator pageIndicator;
 
@@ -38,10 +34,13 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewpager_host);
 
-        fragmentAdapter = new MainActivityFragmentAdapter(getSupportFragmentManager());
-
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(fragmentAdapter);
+        viewPager.setAdapter(new TabFragmentAdapter(getSupportFragmentManager(),
+                InitiateAlarmFragment.getInstance(this),
+                HelperFragment.getInstance(this),
+                MapFragment.getInstance(this),
+                MessagesOverviewFragment.getInstance(this),
+                NotificationFragment.getInstance(this)));
 
         pageIndicator = (TabPageIndicator) findViewById(R.id.indicator);
         pageIndicator.setViewPager(viewPager);
@@ -52,47 +51,6 @@ public class MainActivity extends BaseActivity {
             getDao(Alarm.class, Integer.class).createIfNotExists(a);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-
-    /**
-     * A {@link FragmentStatePagerAdapter} to manage all fragments within the {@link MainActivity}.
-     */
-    class MainActivityFragmentAdapter extends FragmentStatePagerAdapter {
-
-        public MainActivityFragmentAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0: return new InitiateAlarmFragment();
-                case 1: return new HelperFragment();
-                case 2: return new MapFragment();
-                case 3: return new MessagesOverviewFragment();
-                case 4: return new NotificationFragment();
-                default:
-                    throw new RuntimeException("Fragment does not exist. ");
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 5;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0: return getString(R.string.frag_main_initiate_alarm_title);
-                case 1: return getString(R.string.frag_main_helpers_title);
-                case 2: return getString(R.string.frag_main_maps_title);
-                case 3: return getString(R.string.frag_main_messages_overview_title);
-                case 4: return getString(R.string.frag_main_notifications_title);
-                default:
-                    throw new RuntimeException("Fragment does not exist. ");
-            }
         }
     }
 }

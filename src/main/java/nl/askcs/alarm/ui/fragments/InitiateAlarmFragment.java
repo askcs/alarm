@@ -22,7 +22,7 @@ public class InitiateAlarmFragment extends BaseTabFragment implements View.OnCli
 
         // Set the tab title
         Bundle args = new Bundle(1);
-        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_main_helpers_title));
+        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_main_initiate_alarm_title));
         fragment.setArguments(args);
 
         return fragment;
