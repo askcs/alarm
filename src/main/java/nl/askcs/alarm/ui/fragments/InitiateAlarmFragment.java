@@ -12,6 +12,8 @@ import android.widget.Toast;
 import nl.askcs.alarm.R;
 import nl.askcs.alarm.ui.activity.AlarmActivity;
 
+import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+
 public class InitiateAlarmFragment extends BaseTabFragment implements View.OnClickListener {
 
     private ImageButton alarm;

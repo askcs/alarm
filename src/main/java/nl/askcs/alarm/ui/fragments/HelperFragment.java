@@ -9,6 +9,8 @@ import nl.askcs.alarm.models.Helper;
 
 import java.util.ArrayList;
 
+import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+
 public class HelperFragment extends BaseTabListFragment {
 
     private HelperListAdapter mAdapter;

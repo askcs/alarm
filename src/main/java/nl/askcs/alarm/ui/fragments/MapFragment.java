@@ -16,6 +16,8 @@ import nl.askcs.alarm.R;
 import java.io.IOException;
 import java.net.URL;
 
+import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Leon

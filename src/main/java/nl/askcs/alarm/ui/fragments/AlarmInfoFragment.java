@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import nl.askcs.alarm.R;
 
+import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Leon
