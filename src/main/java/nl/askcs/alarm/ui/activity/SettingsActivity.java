@@ -1,4 +1,4 @@
-package nl.askcs.alarm;
+package nl.askcs.alarm.ui.activity;
 
 import com.actionbarsherlock.app.SherlockActivity;
 

@@ -1,4 +1,4 @@
-package nl.askcs.alarm.fragments;
+package nl.askcs.alarm.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import com.actionbarsherlock.app.SherlockFragment;
-import nl.askcs.alarm.AlarmActivity;
+import nl.askcs.alarm.ui.activity.AlarmActivity;
 import nl.askcs.alarm.R;
 
 /**

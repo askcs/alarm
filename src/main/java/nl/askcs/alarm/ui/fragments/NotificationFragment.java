@@ -1,4 +1,4 @@
-package nl.askcs.alarm.fragments;
+package nl.askcs.alarm.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,10 +14,10 @@ import nl.askcs.alarm.R;
  * Time: 13:27
  * To change this template use File | Settings | File Templates.
  */
-public class AlarmInfoFragment extends Fragment {
+public class NotificationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_alarm_info, null);
+        return inflater.inflate(R.layout.frag_notifications, null);
     }
 }

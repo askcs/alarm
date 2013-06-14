@@ -1,4 +1,4 @@
-package nl.askcs.alarm.fragments;
+package nl.askcs.alarm.ui.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;

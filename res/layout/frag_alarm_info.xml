@@ -107,7 +107,7 @@
         <View style="@style/Widget.Alarm.InfoBoxDivider"/>
 
         <fragment
-            class="nl.askcs.alarm.fragments.HelperFragment"
+            class="nl.askcs.alarm.ui.fragments.HelperFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>

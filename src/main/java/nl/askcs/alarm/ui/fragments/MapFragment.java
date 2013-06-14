@@ -1,8 +1,7 @@
-package nl.askcs.alarm.fragments;
+package nl.askcs.alarm.ui.fragments;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,10 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import nl.askcs.alarm.R;
-import org.apache.http.client.methods.HttpGet;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 
 /**
