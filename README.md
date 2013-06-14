@@ -2,8 +2,6 @@
 
 A mock-up of the native Alarm App. This app is hooked up to a test environment.
 
- * Prerequisites
-
 ## Prerequisites
 
 The following should be locally installed:
