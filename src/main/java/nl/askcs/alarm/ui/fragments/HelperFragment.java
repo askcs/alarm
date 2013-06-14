@@ -1,23 +1,28 @@
 package nl.askcs.alarm.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.view.View;
+import nl.askcs.alarm.R;
 import nl.askcs.alarm.adapters.HelperListAdapter;
 import nl.askcs.alarm.models.Helper;
 
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:26
- * To change this template use File | Settings | File Templates.
- */
-public class HelperFragment extends ListFragment {
+public class HelperFragment extends BaseTabListFragment {
 
     private HelperListAdapter mAdapter;
+
+    public static BaseTabListFragment getInstance(Context context) {
+        BaseTabListFragment fragment = new HelperFragment();
+
+        // Set the tab title
+        Bundle args = new Bundle(1);
+        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_main_helpers_title));
+        fragment.setArguments(args);
+
+        return fragment;
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

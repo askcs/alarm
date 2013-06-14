@@ -1,28 +1,32 @@
 package nl.askcs.alarm.ui.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import nl.askcs.alarm.ui.activity.AlarmActivity;
 import nl.askcs.alarm.R;
+import nl.askcs.alarm.ui.activity.AlarmActivity;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:25
- * To change this template use File | Settings | File Templates.
- */
-public class InitiateAlarmFragment extends Fragment implements View.OnClickListener {
+public class InitiateAlarmFragment extends BaseTabFragment implements View.OnClickListener {
 
     private ImageButton alarm;
     private Button followMe, callNationalEmergencyNumber;
+
+    public static BaseTabFragment getInstance(Context context) {
+        BaseTabFragment fragment = new InitiateAlarmFragment();
+
+        // Set the tab title
+        Bundle args = new Bundle(1);
+        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_main_helpers_title));
+        fragment.setArguments(args);
+
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +50,9 @@ public class InitiateAlarmFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alarm:
-                startActivity(new Intent(getActivity(), AlarmActivity.class));
+                startActivity(
+                        new Intent(getActivity(), AlarmActivity.class)
+                                .putExtra(AlarmActivity.EXTRA_ALARM_ID, 1));
                 break;
             case R.id.follow_me:
 

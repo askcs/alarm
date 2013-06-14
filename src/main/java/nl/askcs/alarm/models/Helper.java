@@ -1,8 +1,6 @@
 package nl.askcs.alarm.models;
 
-import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 
 /**
  * Created with IntelliJ IDEA.
@@ -66,6 +64,10 @@ public class Helper {
      */
     @DatabaseField
     private boolean canUseMessageFunctionality;
+
+    public Helper(){
+        // Empty constructor needed by ORMLite
+    }
 
     public Helper(int id, String name, boolean available, double lat, double lon, float distanceToUser, float travelTimeToUser, String phoneNumber, boolean canUseMessageFunctionality) {
         this.id = id;

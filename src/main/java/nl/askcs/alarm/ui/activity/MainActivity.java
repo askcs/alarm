@@ -5,11 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 import nl.askcs.alarm.R;
+import nl.askcs.alarm.models.Alarm;
 import nl.askcs.alarm.ui.fragments.*;
+
+import java.sql.SQLException;
 
 /**
  * The default entrypoint for the user via the App Drawer. Hosts 5 fragments where the user can
@@ -22,7 +24,7 @@ import nl.askcs.alarm.ui.fragments.*;
  * @author : Leon Joosse
  *
  */
-public class MainActivity extends SherlockFragmentActivity {
+public class MainActivity extends BaseActivity {
 
     private MainActivityFragmentAdapter fragmentAdapter;
     private ViewPager viewPager;
@@ -43,6 +45,14 @@ public class MainActivity extends SherlockFragmentActivity {
 
         pageIndicator = (TabPageIndicator) findViewById(R.id.indicator);
         pageIndicator.setViewPager(viewPager);
+
+        // Setup one test alarm for this mock-up
+        Alarm a = new Alarm(1, "My Alarm", "", "", "", false, 5, 5, 5);
+        try {
+            getDao(Alarm.class, Integer.class).createIfNotExists(a);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

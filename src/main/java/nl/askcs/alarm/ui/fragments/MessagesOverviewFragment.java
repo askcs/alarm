@@ -1,10 +1,7 @@
 package nl.askcs.alarm.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import nl.askcs.alarm.R;
 
 /**
@@ -14,10 +11,16 @@ import nl.askcs.alarm.R;
  * Time: 13:26
  * To change this template use File | Settings | File Templates.
  */
-public class MessagesOverviewFragment extends Fragment {
+public class MessagesOverviewFragment extends BaseTabListFragment {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_messages_overview, null);
+    public static BaseTabListFragment getInstance(Context context) {
+        BaseTabListFragment fragment = new MessagesOverviewFragment();
+
+        // Set the tab title
+        Bundle args = new Bundle(1);
+        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_alarm_messages_overview_title));
+        fragment.setArguments(args);
+
+        return fragment;
     }
 }

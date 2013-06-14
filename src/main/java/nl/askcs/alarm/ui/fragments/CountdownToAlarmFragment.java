@@ -1,8 +1,8 @@
 package nl.askcs.alarm.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +24,7 @@ import java.util.TimerTask;
  * Time: 14:41
  * To change this template use File | Settings | File Templates.
  */
-public class CountdownToAlarmFragment extends Fragment {
+public class CountdownToAlarmFragment extends BaseTabFragment {
 
     private Timer countdownTimer;
     private TextView countdownLabel;
@@ -33,6 +33,17 @@ public class CountdownToAlarmFragment extends Fragment {
     private boolean countdownDone;
     private Button cancel;
     private Alarm alarm;
+
+    public static BaseTabFragment getInstance(Context context) {
+        BaseTabFragment fragment = new CountdownToAlarmFragment();
+
+        // Set the tab title
+        Bundle args = new Bundle(1);
+        args.putString(ARG_TAB_TITLE, context.getString(R.string.frag_alarm_info_title));
+        fragment.setArguments(args);
+
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sis) {

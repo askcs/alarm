@@ -14,7 +14,7 @@ public class Alarm {
     /**
      * ID of the alarm
      */
-    @DatabaseField( id = true)
+    @DatabaseField( id = true )
     private int id;
 
     /**
@@ -66,6 +66,10 @@ public class Alarm {
      */
     @DatabaseField
     private int amountOfVolunteers;
+
+    public Alarm(){
+        // Empty constructor needed by ORMLite
+    }
 
     public Alarm(int id, String title, String messageForVIP, String messageForAcquaintances,
                  String messageForVolunteers, boolean enterPinToCancel, int timeToCancelBeforeAlarmStarts,
