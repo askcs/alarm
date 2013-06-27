@@ -9,13 +9,6 @@ import nl.askcs.alarm.R;
 
 import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:27
- * To change this template use File | Settings | File Templates.
- */
 public class AlarmInfoFragment extends BaseTabFragment {
 
     public static BaseTabFragment getInstance(Context context) {

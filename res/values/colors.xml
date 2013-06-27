@@ -11,4 +11,8 @@
     <color name="alarm_boston_blue">#3A87AD</color>
     <color name="alarm_taupe">#433C2D</color>
     <color name="alarm_mine_shaft">#333333</color>
+
+    <color name="pressed_alarm_idle">#CC4E93B5</color>
+    <color name="pressed_alarm_alarm">#CCCD362F</color>
+
 </resources>

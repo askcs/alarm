@@ -3,6 +3,7 @@ package nl.askcs.alarm.ui.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,22 +20,32 @@ import java.util.TimerTask;
 
 import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 13-6-13
- * Time: 14:41
- * To change this template use File | Settings | File Templates.
- */
 public class CountdownToAlarmFragment extends BaseTabFragment {
 
+    // Timer for the countdown
     private Timer countdownTimer;
+
+    // TextView to show the user how many seconds are left
     private TextView countdownLabel;
-    private int countdownSecondsInitial, countdownSecondsToGo;
+
+    // Amount of seconds that the countdown will last
+    private int countdownSecondsInitial;
+
+    // Amount of seconds to fo before the countdown is done
+    private int countdownSecondsToGo;
+
+    // Handler for posting tasks from the Timer
     private Handler countdownHandler;
+
+    // Whether the countdown is finished or not
     private boolean countdownDone;
+
+    // The user can cancel the countdown with this button. Cancelling could require verification via a PIN code.
     private Button cancel;
+
+    // The alarm related to this countdown
     private Alarm alarm;
+
 
     public static BaseTabFragment getInstance(Context context) {
         BaseTabFragment fragment = new CountdownToAlarmFragment();
@@ -62,7 +73,7 @@ public class CountdownToAlarmFragment extends BaseTabFragment {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BusProvider.getBus().post(new StopAlarmEvent());
+                BusProvider.getBus().post(new StopAlarmEvent(1));
             }
         });
 
@@ -87,18 +98,29 @@ public class CountdownToAlarmFragment extends BaseTabFragment {
     public void onPause() {
         super.onPause();
 
+        // Cancel the countdown
+        // TODO: is this required behaviour?
         if (!countdownDone)
             countdownTimer.cancel();
         countdownTimer = null;
     }
 
+    /**
+     * Init and fire up the countdown
+     */
     private void startCountdown() {
         countdownTimer = new Timer();
         countdownSecondsInitial = countdownSecondsToGo;
         countdownLabel.setText(Integer.toString(countdownSecondsInitial));
         countdownTimer.schedule(countdownTimerTask, 1000, 1000);
+
+        getTTS().speak(Integer.toString(countdownSecondsInitial), TextToSpeech.QUEUE_FLUSH, null);
     }
 
+    /**
+     * Called when the Timer reached 0. Fire CountdownToAlarmFinishedEvent to let the Activity know it is time to
+     * show the alarm information
+     */
     private void onCountdownDone() {
 
         countdownDone = true;
@@ -111,6 +133,9 @@ public class CountdownToAlarmFragment extends BaseTabFragment {
         BusProvider.getBus().post(new CountdownToAlarmFinishedEvent(alarm));
     }
 
+    /**
+     * Called every 1000 ms when the countdown is running
+     */
     private TimerTask countdownTimerTask = new TimerTask() {
 
         @Override
@@ -120,7 +145,14 @@ public class CountdownToAlarmFragment extends BaseTabFragment {
 
                     @Override
                     public void run() {
+
+                        // Show the remaining seconds to the user
                         countdownLabel.setText(Integer.toString(countdownSecondsToGo));
+
+                        // Don't speak when the 0 is reached. The fragment will be destroyed, so the speech will be cut-off
+                        if(countdownSecondsToGo != 0) {
+                            getTTS().speak(Integer.toString(countdownSecondsToGo), TextToSpeech.QUEUE_FLUSH, null);
+                        }
                     }
                 });
             }

@@ -4,6 +4,132 @@
     <!-- Themes -->
     <style name="Theme.Alarm" parent="Theme.Sherlock.Light.DarkActionBar">
         <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+        <item name="android:actionBarTabTextStyle">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:actionBarStyle">@style/Theme.Alarm.App.ActionBar</item>
+    </style>
+
+    <!-- Theme: Alarm app in idle state -->
+
+    <style name="Theme.Alarm_idle" parent="@style/Theme.Sherlock.Light.DarkActionBar">
+        <item name="actionBarItemBackground">@drawable/selectable_background_alarm_idle</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Alarm_idle</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Alarm_idle</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Alarm_idle</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Alarm_idle</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Alarm_idle</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_alarm_idle</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_alarm_idle</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Alarm_idle</item>
+
+        <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Alarm_idle.Widget</item>
+
+    </style>
+
+    <style name="ActionBar.Solid.Alarm_idle" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_alarm_idle</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_alarm_idle</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_alarm_idle</item>
+        <item name="progressBarStyle">@style/ProgressBar.Alarm_idle</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Alarm_idle" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="background">@drawable/ab_transparent_alarm_idle</item>
+        <item name="progressBarStyle">@style/ProgressBar.Alarm_idle</item>
+    </style>
+
+    <style name="PopupMenu.Alarm_idle" parent="@style/Widget.Sherlock.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_alarm_idle</item>
+    </style>
+
+    <style name="DropDownListView.Alarm_idle" parent="@style/Widget.Sherlock.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_alarm_idle</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Alarm_idle" parent="@style/Widget.Sherlock.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_alarm_idle</item>
+    </style>
+
+    <style name="DropDownNav.Alarm_idle" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_alarm_idle</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_alarm_idle</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_alarm_idle</item>
+    </style>
+
+    <style name="ProgressBar.Alarm_idle" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_alarm_idle</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Alarm_idle" parent="@style/Widget.Sherlock.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_alarm_idle</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Alarm_idle.Widget" parent="@style/Theme.Sherlock">
+        <item name="popupMenuStyle">@style/PopupMenu.Alarm_idle</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Alarm_idle</item>
+    </style>
+
+    <!-- Theme: Alarm app in alarm state -->
+
+    <style name="Theme.Alarm_alarm" parent="@style/Theme.Sherlock.Light.DarkActionBar">
+        <item name="actionBarItemBackground">@drawable/selectable_background_alarm_alarm</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Alarm_alarm</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Alarm_alarm</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Alarm_alarm</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Alarm_alarm</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Alarm_alarm</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_alarm_alarm</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_alarm_alarm</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Alarm_alarm</item>
+
+        <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Alarm_alarm.Widget</item>
+
+    </style>
+
+    <style name="ActionBar.Solid.Alarm_alarm" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_alarm_alarm</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_alarm_alarm</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_alarm_alarm</item>
+        <item name="progressBarStyle">@style/ProgressBar.Alarm_alarm</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Alarm_alarm" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="background">@drawable/ab_transparent_alarm_alarm</item>
+        <item name="progressBarStyle">@style/ProgressBar.Alarm_alarm</item>
+    </style>
+
+    <style name="PopupMenu.Alarm_alarm" parent="@style/Widget.Sherlock.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_alarm_alarm</item>
+    </style>
+
+    <style name="DropDownListView.Alarm_alarm" parent="@style/Widget.Sherlock.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_alarm_alarm</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Alarm_alarm" parent="@style/Widget.Sherlock.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_alarm_alarm</item>
+    </style>
+
+    <style name="DropDownNav.Alarm_alarm" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_alarm_alarm</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_alarm_alarm</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_alarm_alarm</item>
+    </style>
+
+    <style name="ProgressBar.Alarm_alarm" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_alarm_alarm</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Alarm_alarm" parent="@style/Widget.Sherlock.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_alarm_alarm</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Alarm_alarm.Widget" parent="@style/Theme.Sherlock">
+        <item name="popupMenuStyle">@style/PopupMenu.Alarm_alarm</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Alarm_alarm</item>
     </style>
 
     <style name="Theme.Alarm.App.ActionBar" parent="Widget.Sherlock.ActionBar">
@@ -29,7 +155,7 @@
     <style name="CustomTabPageIndicator.Text">
         <!--<item name="android:textColor">@drawable/text_tab_bridal_heath_sandy_brown</item>-->
         <item name="android:textColor">@color/alarm_ecru_white</item>
-        <item name="android:textSize">9sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">3dp</item>
         <item name="android:paddingBottom">3dp</item>

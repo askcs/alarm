@@ -3,6 +3,7 @@ package nl.askcs.alarm.event;
 import android.os.Handler;
 import android.os.Looper;
 import com.squareup.otto.Bus;
+import nl.askcs.alarm.util.L;
 
 /**
  * Maintains a singleton instance for obtaining the event bus over
@@ -21,9 +22,11 @@ public final class BusProvider {
         public void post(final Object event) {
 
             if (Looper.myLooper() == Looper.getMainLooper()) {
+                L.i("BusProvider", " a firedEvent: {0}", event.getClass().getName());
                 super.post(event);
             }
             else {
+                L.i("BusProvider", " b firedEvent: {0}", event.getClass().getName());
                 mainThread.post(new Runnable() {
                     @Override
                     public void run() {

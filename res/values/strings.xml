@@ -28,4 +28,11 @@
     <!-- menu/alarm.xml -->
     <string name="menu_cancel_alarm">Alarm annuleren</string>
 
+    <!-- frag_create_alarm -->
+    <string-array name="frag_create_alarm_action_button_available_actions">
+        <item>Bel 1 1 2</item>
+        <item>Bel een contactpersoon</item>
+        <item>Bel een telefoonnummer</item>
+    </string-array>
+
 </resources>

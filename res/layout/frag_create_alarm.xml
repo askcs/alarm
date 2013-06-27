@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="6dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Titel"
+            android:id="@+id/textView3"
+            android:layout_gravity="left|center_vertical"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:hint="Naam van het alarm"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Actieknop"
+            android:id="@+id/textView"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="6dp"/>
+
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_gravity="left|center_vertical"
+            android:entries="@string/abs__action_menu_overflow_description"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:hint="Deze kenmerken staan onder het kopje Bel 1 1 2 als"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Aanwijzingen"
+            android:id="@+id/textView2"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="6dp"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText4"
+            android:layout_gravity="left|center_vertical"
+            android:hint="Geef de kenmerken op"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:hint="Geef de aanwijzingen op"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Beveiliging"
+            android:id="@+id/textView4"
+            android:layout_gravity="left|center_vertical"/>
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PIN code vereist om alarm te stoppen"
+            android:id="@+id/checkBox"
+            android:layout_gravity="left|center_vertical"/>
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foutief alarm vooraf  annuleren "
+            android:id="@+id/checkBox2"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical">
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:ems="2"
+                android:id="@+id/editText5"
+                android:layout_gravity="left|center_vertical"
+                android:text="5"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Aantal seconden voordat alarm afgaat"
+                android:id="@+id/textView5"
+                android:gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="Voorbeeld"
+                android:id="@+id/button"
+                android:layout_weight="0.5"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="Opslaan"
+                android:id="@+id/button2"
+                android:layout_weight="0.5"/>
+    </LinearLayout>
+
+</LinearLayout>

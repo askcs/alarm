@@ -107,10 +107,11 @@
         <View style="@style/Widget.Alarm.InfoBoxDivider"/>
 
         <fragment
-            class="nl.askcs.alarm.ui.fragments.HelperFragment"
+            android:name="nl.askcs.alarm.ui.fragments.HelperFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:id="@+id/meh"/>
 
         <View style="@style/Widget.Alarm.InfoBoxDivider"/>
 

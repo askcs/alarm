@@ -41,4 +41,18 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Widget.Alarm.TabPageIndicator" parent="Widget.TabPageIndicator">
+        <item name="android:background">@drawable/alarm_tab_indicator</item>
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:divider">@color/alarm_mine_shaft</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:fadingEdge">horizontal</item>
+    </style>
+    <style name="Widget.Alarm.TabPageIndicator.StateIdle">
+        <item name="android:background">@drawable/alarm_tab_indicator</item>
+    </style>
+    <style name="Widget.Alarm.TabPageIndicator.StateAlarm"></style>
+
 </resources>

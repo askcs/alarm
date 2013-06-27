@@ -1,7 +1,6 @@
 package nl.askcs.alarm.ui.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +9,18 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import nl.askcs.alarm.R;
-import nl.askcs.alarm.ui.activity.AlarmActivity;
+import nl.askcs.alarm.event.BusProvider;
+import nl.askcs.alarm.event.StartAlarmEvent;
+import nl.askcs.alarm.util.L;
+import nl.askcs.alarm.util.VoiceAttributes;
+
+import java.util.ArrayList;
 
 import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
 
 public class InitiateAlarmFragment extends BaseTabFragment implements View.OnClickListener {
+
+    private static final String TAG = "InitiateAlarmFragment";
 
     private ImageButton alarm;
     private Button followMe, callNationalEmergencyNumber;
@@ -40,28 +46,43 @@ public class InitiateAlarmFragment extends BaseTabFragment implements View.OnCli
         super.onViewCreated(view, savedInstanceState);
 
         alarm = (ImageButton) view.findViewById(R.id.alarm);
-        followMe = (Button) view.findViewById(R.id.follow_me);
-        callNationalEmergencyNumber = (Button) view.findViewById(R.id.call_national_emergency_number);
-
         alarm.setOnClickListener(this);
+        registerViewForVoiceAttributes(alarm, new VoiceAttributes("activeer alarm", "alarm"));
+
+        followMe = (Button) view.findViewById(R.id.follow_me);
         followMe.setOnClickListener(this);
+        registerViewForVoiceAttributes(followMe, new VoiceAttributes("activeer volg mij", "volg mij"));
+
+        callNationalEmergencyNumber = (Button) view.findViewById(R.id.call_national_emergency_number);
         callNationalEmergencyNumber.setOnClickListener(this);
+        registerViewForVoiceAttributes(callNationalEmergencyNumber, new VoiceAttributes("bel 1 1 2", "alarmnummer", "bel alarmnummer", "bel alarmnummer 1 1 2"));
+    }
+
+    @Override
+    public void onVoiceElementTriggered(int id, String match, ArrayList<String> possibleMatches) {
+        super.onVoiceElementTriggered(id, match, possibleMatches);
+
+        switch(id) {
+            case R.id.alarm:
+                boolean listenerAvailable = alarm.performClick();
+                L.i(TAG, "listener is available: {0}", Boolean.toString(listenerAvailable));
+                break;
+            // default: // do nothing
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alarm:
-                startActivity(
-                        new Intent(getActivity(), AlarmActivity.class)
-                                .putExtra(AlarmActivity.EXTRA_ALARM_ID, 1));
+                BusProvider.getBus().post(new StartAlarmEvent(1));
                 break;
             case R.id.follow_me:
 
                 break;
             case R.id.call_national_emergency_number:
-                Toast.makeText(getActivity(), "Calling the national emergency number is prohibited, because it is " +
-                        "illegal to do it just for a test. You can go to jail for it.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Calling the national emergency number for a test is prohibited. You " +
+                        "can go to jail for it.", Toast.LENGTH_LONG).show();
                 break;
         }
     }

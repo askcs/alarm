@@ -13,14 +13,15 @@
       android:theme="@style/Theme.Alarm">
 
       <activity android:name=".ui.activity.MainActivity"
-                android:label="@string/activity_label_main">
+                android:label="@string/activity_label_main"
+          android:screenOrientation="portrait">
           <intent-filter>
               <action android:name="android.intent.action.MAIN"/>
               <category android:name="android.intent.category.LAUNCHER"/>
           </intent-filter>
       </activity>
-      <activity android:label="@string/activity_label_alarm" android:name=".ui.activity.AlarmActivity" />
-      <activity android:label="@string/activity_label_settings" android:name=".ui.activity.SettingsActivity" />
+      <activity android:label="@string/activity_label_alarm" android:name=".ui.activity.AlarmActivity" android:screenOrientation="portrait" />
+      <activity android:label="@string/activity_label_settings" android:name=".ui.activity.SettingsActivity" android:screenOrientation="portrait" />
 
   </application>
 

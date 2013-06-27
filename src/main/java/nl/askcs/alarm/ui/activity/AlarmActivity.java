@@ -1,6 +1,7 @@
 package nl.askcs.alarm.ui.activity;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import com.squareup.otto.Subscribe;
@@ -55,6 +56,8 @@ public class AlarmActivity extends BaseActivity {
     public void onCreate(Bundle sis) {
         super.onCreate(sis);
 
+        BusProvider.getBus().register(this);
+
         setContentView(R.layout.viewpager_host);
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new TabFragmentAdapter(getSupportFragmentManager()));
@@ -89,6 +92,12 @@ public class AlarmActivity extends BaseActivity {
             countdownFinished = true;
             setAlarmLayout();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BusProvider.getBus().unregister(this);
     }
 
     @Override
@@ -130,6 +139,8 @@ public class AlarmActivity extends BaseActivity {
                         NotificationFragment.getInstance(this)));
 
         pageIndicator.notifyDataSetChanged();
+
+        getTTS().speak("Alarm, Ik heb een lage bloed suiker waarde", TextToSpeech.QUEUE_FLUSH, null);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:voice_control="http://leonjoosse.nl/leon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/striped_background">
@@ -26,6 +27,7 @@
                 android:scaleType="fitCenter"
                 android:contentDescription="Alarm Button"
                 android:id="@+id/alarm"
+                voice_control:trigger_keywords="Alarm"
                 />
         </LinearLayout>
         <LinearLayout
@@ -54,6 +56,7 @@
                 android:layout_weight="1"
                 android:text="Bel 112"
                 style="@style/Widget.Alarm.Button.Taupe"
+                voice_control:trigger_keywords="bel 112"
                 />
         </LinearLayout>
     </LinearLayout>
