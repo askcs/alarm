@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import nl.askcs.alarm.R;
-import nl.askcs.alarm.adapters.HelperListAdapter;
 import nl.askcs.alarm.models.Helper;
+import nl.askcs.alarm.ui.adapters.HelperListAdapter;
 
 import java.util.ArrayList;
 
-import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 public class HelperFragment extends BaseTabListFragment {
 

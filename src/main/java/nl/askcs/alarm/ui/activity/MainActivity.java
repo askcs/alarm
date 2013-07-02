@@ -3,7 +3,6 @@ package nl.askcs.alarm.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.widget.Toast;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.squareup.otto.Subscribe;
@@ -14,7 +13,7 @@ import nl.askcs.alarm.event.BusProvider;
 import nl.askcs.alarm.event.StartAlarmEvent;
 import nl.askcs.alarm.event.VoiceElementTriggeredEvent;
 import nl.askcs.alarm.models.Alarm;
-import nl.askcs.alarm.ui.TabFragmentAdapter;
+import nl.askcs.alarm.ui.adapters.TabFragmentAdapter;
 import nl.askcs.alarm.ui.fragments.*;
 import nl.askcs.alarm.util.L;
 
@@ -87,7 +86,7 @@ public class MainActivity extends BaseActivity {
                         .activateSpeechRecognition();
                 return true;
             case R.id.settings:
-                Toast.makeText(this, "Settings stub...", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -148,4 +148,9 @@ public abstract class BaseTabFragment extends SherlockFragment {
             }
         }
     }
+
+    @Override
+    public BaseActivity getSherlockActivity() {
+        return (BaseActivity) super.getSherlockActivity();
+    }
 }

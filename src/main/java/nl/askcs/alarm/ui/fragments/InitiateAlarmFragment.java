@@ -16,7 +16,7 @@ import nl.askcs.alarm.util.VoiceAttributes;
 
 import java.util.ArrayList;
 
-import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 public class InitiateAlarmFragment extends BaseTabFragment implements View.OnClickListener {
 

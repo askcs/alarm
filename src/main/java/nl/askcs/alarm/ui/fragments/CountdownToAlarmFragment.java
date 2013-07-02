@@ -18,7 +18,7 @@ import nl.askcs.alarm.models.Alarm;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 public class CountdownToAlarmFragment extends BaseTabFragment {
 

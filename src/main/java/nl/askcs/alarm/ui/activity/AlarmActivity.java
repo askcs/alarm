@@ -12,7 +12,7 @@ import nl.askcs.alarm.event.CountdownToAlarmFinishedEvent;
 import nl.askcs.alarm.event.CountdownToAlarmStartEvent;
 import nl.askcs.alarm.event.StopAlarmEvent;
 import nl.askcs.alarm.models.Alarm;
-import nl.askcs.alarm.ui.TabFragmentAdapter;
+import nl.askcs.alarm.ui.adapters.TabFragmentAdapter;
 import nl.askcs.alarm.ui.fragments.*;
 
 /**

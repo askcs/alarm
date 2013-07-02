@@ -1,14 +1,18 @@
 package nl.askcs.alarm.ui.activity;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import android.R;
+import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import nl.askcs.alarm.ui.fragments.SettingsFragment;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:31
- * To change this template use File | Settings | File Templates.
- */
-public class SettingsActivity extends SherlockActivity {
+public class SettingsActivity extends BaseActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.content, new SettingsFragment());
+        ft.commit();
+    }
 }

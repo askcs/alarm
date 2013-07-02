@@ -1,4 +1,4 @@
-package nl.askcs.alarm.adapters;
+package nl.askcs.alarm.ui.adapters;
 
 import android.content.Context;
 import android.util.Log;

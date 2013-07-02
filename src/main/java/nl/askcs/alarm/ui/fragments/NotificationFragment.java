@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import nl.askcs.alarm.R;
 
-import static nl.askcs.alarm.ui.TabFragmentAdapter.ARG_TAB_TITLE;
+import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 public class NotificationFragment extends BaseTabListFragment {
 
