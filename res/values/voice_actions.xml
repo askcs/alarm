@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General app Voice Actions -->
+    <item type="id" name="va_general_back" />
+    <string name="va_general_back">(ga)? ?terug</string>
+
+    <!-- Voice actions for MainActivity -->
+    <item type="id" name="va_main_open_settings"/>
+    <string name="va_main_open_settings">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de)? ?instellingen</string>
+
+    <item type="id" name="va_main_go_to_alarm_tab"/>
+    <string name="va_main_go_to_alarm_tab">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de) alarm (tab|tap)</string>
+
+    <item type="id" name="va_main_go_to_helper_tab"/>
+    <string name="va_main_go_to_helper_tab">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de) (helper|helpers) (tab|tap)</string>
+
+    <item type="id" name="va_main_go_to_map_tab"/>
+    <string name="va_main_go_to_map_tab">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de) (map|maps|kaart|kaarten) (tab|tap)</string>
+
+    <item type="id" name="va_main_go_to_messages_tab"/>
+    <string name="va_main_go_to_messages_tab">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de) (berichten|bericht) (tab|tap)</string>
+
+    <item type="id" name="va_main_go_to_notifications_tab"/>
+    <string name="va_main_go_to_notifications_tab">(ga naar de|ga naar|open|open de|navigeer naar|navigeer naar de) (notificatie|notificaties) (tab|tap)</string>
+
+    <!-- Voice actions for SettingsActivity -->
+    <item type="id" name="va_settings_profile" />
+    <string name="va_settings_profile">(profiel|profielbeheer|profiel beheer) ?(instellen)?</string>
+
+    <item type="id" name="va_settings_pin_code" />
+    <string name="va_settings_pin_code">(pin code|pincode) ?(instellen)?</string>
+
+    <item type="id" name="va_settings_new_alarm" />
+    <string name="va_settings_new_alarm">nieuw alarm ?(instellen)?</string>
+
+    <!-- Voice Actions for EditAlarmActivity -->
+    <string-array name="va_edit_alarm_alarm_title">
+        <item>(naam|titel) van het alarm</item>
+        <item>alarm titel</item>
+        <item>titel alarm</item>
+        <item>titel</item>
+    </string-array>
+
+    <!-- Voice actions for AlarmActivity -->
+    <item type="id" name="va_alarm_overall_instructions" />
+    <string name="va_alarm_overall_instructions">(lees|geef)? ?instructies?</string>
+
+    <item type="id" name="va_alarm_read_all_helpers" />
+    <string name="va_alarm_read_all_helpers">(welke)? ?helpers? ?(is|zijn)? ?(onderweg|komen|in aantocht)</string>
+
+    <item type="id" name="va_alarm_exit" />
+    <string name="va_alarm_exit">(stop|annuleer)? ?alarm? ?(annuleren)?</string>
+
+</resources>

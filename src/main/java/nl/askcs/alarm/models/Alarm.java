@@ -1,88 +1,86 @@
 package nl.askcs.alarm.models;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 4-6-13
- * Time: 13:55
- * To change this template use File | Settings | File Templates.
+ * Model of an Alarm.
  */
+@DatabaseTable
 public class Alarm {
 
     /**
      * ID of the alarm
      */
-    @DatabaseField( id = true )
+    @DatabaseField(generatedId = true)
     private int id;
-
     /**
      * Title set by the user
      */
     @DatabaseField
     private String title;
-
     /**
-     * Message that will be sent to VIPs. VIPs are set per alarm by the user.
+     * Whether this alarm is active
      */
     @DatabaseField
-    private String messageForVIP;
-
+    private boolean isEnabled;
     /**
-     * Message that will be sent to acquaintances. An acquaintance is a potential helper.
+     * Characteristics for the given instructions for a volunteer helper.
      */
     @DatabaseField
-    private String messageForAcquaintances;
-
+    private String characteristics;
     /**
-     * Message that will be sent to volunteers.
+     * Instructions for the given characteristics for a volunteer helper
      */
     @DatabaseField
-    private String messageForVolunteers;
-
+    private String instructions;
     /**
      * If the cancel button is pressed of the alarm in alarm mode, the app will ask for a PIN code to cancel the alarm.
      * This prevents someone with the wrong intentions to cancel the alarm (for example in the violence type of alarm).
      */
     @DatabaseField
     private boolean enterPinToCancel;
-
     /**
      * Amount of seconds the user has to cancel the alarm in case he/she triggered it by accident. The alarm will start
      * after this amount of seconds.
      */
     @DatabaseField
     private int countdownLengthBeforeAlarmStarts;
-
     /**
-     * The amount of acquaintances to alert. This is specified by the user
+     *
      */
     @DatabaseField
-    private int amountOfAcquaintances;
-
+    private String actionContactName;
     /**
-     * The amount of volunteers to alert. This is specified by the user
+     *
      */
     @DatabaseField
-    private int amountOfVolunteers;
+    private String actionContactPhoneNumber;
+    /**
+     * For all referenced helpers
+     */
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Helper> helpers;
 
-    public Alarm(){
+    public Alarm() {
         // Empty constructor needed by ORMLite
     }
 
-    public Alarm(int id, String title, String messageForVIP, String messageForAcquaintances,
-                 String messageForVolunteers, boolean enterPinToCancel, int timeToCancelBeforeAlarmStarts,
-                 int amountOfAcquaintances, int amountOfVolunteers) {
+    public Alarm(int id, String title, boolean enabled, String characteristics, String instructions,
+                 boolean enterPinToCancel, int countdownLengthBeforeAlarmStarts, String actionContactName,
+                 String actionContactPhoneNumber, ForeignCollection<Helper> helpers) {
         this.id = id;
         this.title = title;
-        this.messageForVIP = messageForVIP;
-        this.messageForAcquaintances = messageForAcquaintances;
-        this.messageForVolunteers = messageForVolunteers;
+        this.isEnabled = enabled;
+        this.characteristics = characteristics;
+        this.instructions = instructions;
         this.enterPinToCancel = enterPinToCancel;
-        this.countdownLengthBeforeAlarmStarts = timeToCancelBeforeAlarmStarts;
-        this.amountOfAcquaintances = amountOfAcquaintances;
-        this.amountOfVolunteers = amountOfVolunteers;
+        this.countdownLengthBeforeAlarmStarts = countdownLengthBeforeAlarmStarts;
+        this.actionContactName = actionContactName;
+        this.actionContactPhoneNumber = actionContactPhoneNumber;
+        this.helpers = helpers;
     }
 
     public int getId() {
@@ -101,28 +99,28 @@ public class Alarm {
         this.title = title;
     }
 
-    public String getMessageForVIP() {
-        return messageForVIP;
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    public void setMessageForVIP(String messageForVIP) {
-        this.messageForVIP = messageForVIP;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
-    public String getMessageForAcquaintances() {
-        return messageForAcquaintances;
+    public String getCharacteristics() {
+        return characteristics;
     }
 
-    public void setMessageForAcquaintances(String messageForAcquaintances) {
-        this.messageForAcquaintances = messageForAcquaintances;
+    public void setCharacteristics(String characteristics) {
+        this.characteristics = characteristics;
     }
 
-    public String getMessageForVolunteers() {
-        return messageForVolunteers;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setMessageForVolunteers(String messageForVolunteers) {
-        this.messageForVolunteers = messageForVolunteers;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
     public boolean shouldEnterPinToCancel() {
@@ -141,19 +139,32 @@ public class Alarm {
         this.countdownLengthBeforeAlarmStarts = countdownLengthBeforeAlarmStarts;
     }
 
-    public int getAmountOfAcquaintances() {
-        return amountOfAcquaintances;
+    public String getActionContactName() {
+        return actionContactName;
     }
 
-    public void setAmountOfAcquaintances(int amountOfAcquaintances) {
-        this.amountOfAcquaintances = amountOfAcquaintances;
+    public void setActionContactName(String actionContactName) {
+        this.actionContactName = actionContactName;
     }
 
-    public int getAmountOfVolunteers() {
-        return amountOfVolunteers;
+    public String getActionContactPhoneNumber() {
+        return actionContactPhoneNumber;
     }
 
-    public void setAmountOfVolunteers(int amountOfVolunteers) {
-        this.amountOfVolunteers = amountOfVolunteers;
+    public void setActionContactPhoneNumber(String actionContactPhoneNumber) {
+        this.actionContactPhoneNumber = actionContactPhoneNumber;
+    }
+
+    public ForeignCollection<Helper> getHelpers() {
+        return helpers;
+    }
+
+    public void setHelpers(ForeignCollection<Helper> helpers) {
+        this.helpers = helpers;
+    }
+
+    public int getHelperCount() {
+        return this.helpers == null ? 0 : this.helpers.size();
+
     }
 }

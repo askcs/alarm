@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:voice_control="http://leonjoosse.nl/leon"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/striped_background">
 
@@ -11,6 +12,7 @@
                   android:layout_width="match_parent"
                   android:background="@color/alarm_ecru_white"
                   android:layout_margin="@dimen/activity_horizontal_margin"
+                  android:layout_marginBottom="25dp"
                   android:orientation="vertical">
 
         <LinearLayout style="@style/Widget.Alarm.InfoBox">
@@ -21,7 +23,7 @@
                 android:id="@+id/profile_avatar"
                 android:layout_gravity="center_vertical"
                 android:paddingRight="2dp"
-                android:src="@android:drawable/star_big_on"
+                android:src="@drawable/ic_action_social_person"
                 />
 
             <LinearLayout
@@ -29,13 +31,71 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/estimated_time"
+                    android:id="@+id/title"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:text="I HAVE A LOW BLOODSUGAR"
+                    android:text="[TITEL]"
                     style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header.Big"
+                    voice_control:id="10"
+                    voice_control:trigger_keywords="(titel|alarmnaam|alarm naam|alarmtitel|alarm titel|titel van alarm)"
                     />
             </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            style="@style/Widget.Alarm.InfoBox"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
+                android:text="Instructies"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/characteristics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="[aanwijzingen]"
+                    android:layout_weight="0.4"
+                    voice_control:id="11"
+                    voice_control:trigger_keywords="aanwijzingen"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="→"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="0.2"
+                    />
+
+                <TextView
+                    android:id="@+id/instructions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="[instructies]"
+                    android:textStyle="bold"
+                    android:layout_weight="0.4"
+                    voice_control:id="12"
+                    voice_control:trigger_keywords="instructies?"
+                    />
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <View style="@style/Widget.Alarm.InfoBoxDivider"/>
@@ -51,38 +111,87 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/action_contact_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
-                    android:text="If I got/am"/>
+                    android:text="[CONTACTNAAM]"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="- Trembling"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="- Blue lips"/>
+                    android:text="Deze contactpersoon weet meer over dit slachtoffer"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="-->"/>
+                android:text="→"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
 
             <Button
-                android:id="@+id/action_button_message"
+                android:id="@+id/action_call_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_button_red"
+                android:padding="10dp"
+                android:layout_marginLeft="6dp"
+                android:drawableTop="@drawable/ic_action_social_person"
+                android:text="Bel contact"
+                android:textColor="@color/alarm_ecru_white"
+                voice_control:id="13"
+                voice_control:trigger_keywords="bel contact"
+                />
+        </LinearLayout>
+
+        <View style="@style/Widget.Alarm.InfoBoxDivider" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            style="@style/Widget.Alarm.InfoBox">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
+                    android:text="Bel 112"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Als u niet weet wat u moet doen, bel 112."/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="→"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/action_button_call_national_alarm_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/gradient_button_red"
                 android:padding="10dp"
                 android:layout_marginLeft="6dp"
                 android:drawableTop="@android:drawable/ic_menu_call"
-                android:text="Call 112"
+                android:text="112 bellen"
                 android:textColor="@color/alarm_ecru_white"
+                voice_control:id="14"
+                voice_control:trigger_keywords="((bel )?een een twee|een een twee bellen)"
                 />
         </LinearLayout>
 
@@ -96,27 +205,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.Alarm.TextView.AlarmInfoBox.Header"
-                android:text="Help on the way"/>
+                android:text="Helpers onderweg"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="These people are on their way to help"/>
+                android:text="Deze helpers hebben een notificatie van dit alarm ontvangen:"/>
         </LinearLayout>
 
         <View style="@style/Widget.Alarm.InfoBoxDivider"/>
 
-        <fragment
-            android:name="nl.askcs.alarm.ui.fragments.HelperFragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/meh"/>
+            android:id="@+id/helpers_on_their_way"
+            android:orientation="vertical"
+            >
+            
+        </LinearLayout>
 
-        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
-
-
-        <View style="@style/Widget.Alarm.InfoBoxDivider"/>
+        <View style="@style/Widget.Alarm.InfoBoxDivider" />
 
     </LinearLayout>
 </ScrollView>

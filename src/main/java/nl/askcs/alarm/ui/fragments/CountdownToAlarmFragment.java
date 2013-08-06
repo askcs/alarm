@@ -20,6 +20,10 @@ import java.util.TimerTask;
 
 import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
+/**
+ * Displays a countdown, giving the user the ability to stop the Alarm if it was triggered by accident. Also utters
+ * the amount of seconds left every second.
+ */
 public class CountdownToAlarmFragment extends BaseTabFragment {
 
     // Timer for the countdown
@@ -150,7 +154,7 @@ public class CountdownToAlarmFragment extends BaseTabFragment {
                         countdownLabel.setText(Integer.toString(countdownSecondsToGo));
 
                         // Don't speak when the 0 is reached. The fragment will be destroyed, so the speech will be cut-off
-                        if(countdownSecondsToGo != 0) {
+                        if (countdownSecondsToGo != 0) {
                             getTTS().speak(Integer.toString(countdownSecondsToGo), TextToSpeech.QUEUE_FLUSH, null);
                         }
                     }

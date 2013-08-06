@@ -2,7 +2,15 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/cancel_alarm"
-            android:showAsAction="ifRoom|withText"
-            android:title="@string/menu_cancel_alarm"/>
+        android:id="@+id/cancel_alarm"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_cancel_alarm"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        />
+    <item
+        android:id="@+id/speak"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_device_access_mic"
+        android:title="Voice Control"
+        />
 </menu>

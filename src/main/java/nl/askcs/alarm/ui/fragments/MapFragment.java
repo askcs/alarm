@@ -19,11 +19,8 @@ import java.net.URL;
 import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:26
- * To change this template use File | Settings | File Templates.
+ * Displays a map with the current location of the user. The map should be able to show positions of Helpers in the
+ * Alarm mode. Currently, a map is shown using the Google Maps Static API, using the address of the ASK HQ.
  */
 public class MapFragment extends BaseTabFragment {
 
@@ -64,7 +61,7 @@ public class MapFragment extends BaseTabFragment {
         protected Bitmap doInBackground(Void... params) {
 
             try {
-                URL url = new URL("http://maps.google.com/maps/api/staticmap?center=Coolhaven%20236,%20Rotterdam&zoom=16&size=" + Integer.toString(width) + "x" + Integer.toString(height) + "&maptype=roadmap&sensor=false&markers=Coolhaven%20236,%20Rotterdam");
+                URL url = new URL("http://maps.google.com/maps/api/staticmap?center=Coolhaven%20236,%20Rotterdam&zoom=16&size=640x640&maptype=roadmap&sensor=false&markers=Coolhaven%20236,%20Rotterdam");
                 return BitmapFactory.decodeStream(url.openConnection().getInputStream());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -76,7 +73,7 @@ public class MapFragment extends BaseTabFragment {
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
 
-            if(bitmap == null) {
+            if (bitmap == null) {
                 Toast.makeText(MapFragment.this.getActivity(), "Could not reach Google Maps", Toast.LENGTH_SHORT).show();
             } else {
                 map.setImageBitmap(bitmap);

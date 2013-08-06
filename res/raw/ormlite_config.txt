@@ -1,5 +1,5 @@
 #
-# generated on 2013/06/14 12:18:29
+# generated on 2013/07/31 02:32:26
 #
 # --table-start--
 dataClass=nl.askcs.alarm.models.Alarm
@@ -7,19 +7,19 @@ tableName=alarm
 # --table-fields-start--
 # --field-start--
 fieldName=id
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=title
 # --field-end--
 # --field-start--
-fieldName=messageForVIP
+fieldName=isEnabled
 # --field-end--
 # --field-start--
-fieldName=messageForAcquaintances
+fieldName=characteristics
 # --field-end--
 # --field-start--
-fieldName=messageForVolunteers
+fieldName=instructions
 # --field-end--
 # --field-start--
 fieldName=enterPinToCancel
@@ -28,10 +28,15 @@ fieldName=enterPinToCancel
 fieldName=countdownLengthBeforeAlarmStarts
 # --field-end--
 # --field-start--
-fieldName=amountOfAcquaintances
+fieldName=actionContactName
 # --field-end--
 # --field-start--
-fieldName=amountOfVolunteers
+fieldName=actionContactPhoneNumber
+# --field-end--
+# --field-start--
+fieldName=helpers
+foreignCollection=true
+foreignCollectionEager=true
 # --field-end--
 # --table-fields-end--
 # --table-end--
@@ -42,7 +47,7 @@ tableName=helper
 # --table-fields-start--
 # --field-start--
 fieldName=id
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=name
@@ -67,6 +72,11 @@ fieldName=phoneNumber
 # --field-end--
 # --field-start--
 fieldName=canUseMessageFunctionality
+# --field-end--
+# --field-start--
+fieldName=alarm
+foreign=true
+foreignAutoRefresh=true
 # --field-end--
 # --table-fields-end--
 # --table-end--

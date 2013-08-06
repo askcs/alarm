@@ -46,7 +46,7 @@ public class ActiveAlarmService extends Service {
         // Only do this if we're not yet running.
         if (!isRunning) {
 
-            L.d(TAG, "starting service");
+            L.d("starting service");
 
             try {
                 notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -60,7 +60,7 @@ public class ActiveAlarmService extends Service {
                 //startScheduledWork();
 
             } catch (Exception e) {
-                L.w(TAG, "something went wrong while starting on foreground: ", e);
+                L.w("something went wrong while starting on foreground: ", e);
             }
         }
 
@@ -69,7 +69,7 @@ public class ActiveAlarmService extends Service {
 
     private Notification getInitNotification() {
         if (notificationManager == null) {
-            L.w(TAG, "notificationManager == null");
+            L.w("notificationManager == null");
             return null;
         }
 
@@ -80,7 +80,7 @@ public class ActiveAlarmService extends Service {
             Alarm alarm = dao.queryForId(1);
             alarmName = alarm.getTitle();
         } catch (SQLException e) {
-            L.e(TAG, "Could not retrieve USER_KEY from local DB: ", e);
+            L.e("Could not retrieve USER_KEY from local DB: ", e);
         }
 
         Notification notification = this.createNotification(
@@ -106,7 +106,7 @@ public class ActiveAlarmService extends Service {
     private Notification createNotification(int icon, String title, String message, boolean autoCancel) {
 
         if (notificationManager == null) {
-            L.w(TAG, "notificationManager == null");
+            L.w("notificationManager == null");
             return null;
         }
 

@@ -6,6 +6,9 @@ import nl.askcs.alarm.R;
 
 import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
+/**
+ * This Fragment should display all notifications. No implementation yet.
+ */
 public class NotificationFragment extends BaseTabListFragment {
 
     public static BaseTabListFragment getInstance(Context context) {

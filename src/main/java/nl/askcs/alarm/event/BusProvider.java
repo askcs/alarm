@@ -14,7 +14,7 @@ public final class BusProvider {
 
     // The singleton of the Bus instance which can be used from
     // any thread in the app.
-    private static final Bus BUS = new Bus(){
+    private static final Bus BUS = new Bus() {
 
         private final Handler mainThread = new Handler(Looper.getMainLooper());
 
@@ -24,8 +24,7 @@ public final class BusProvider {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 L.i("BusProvider", " a firedEvent: {0}", event.getClass().getName());
                 super.post(event);
-            }
-            else {
+            } else {
                 L.i("BusProvider", " b firedEvent: {0}", event.getClass().getName());
                 mainThread.post(new Runnable() {
                     @Override
@@ -43,8 +42,8 @@ public final class BusProvider {
      * back.
      *
      * @return a singleton instance for obtaining the event bus over
-     * which messages are passed from UI components to Services, and
-     * back.
+     *         which messages are passed from UI components to Services, and
+     *         back.
      */
     public static Bus getBus() {
         return BUS;

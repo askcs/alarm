@@ -11,8 +11,6 @@ public class CountdownToAlarmStartEvent {
     public final Alarm alarm;
 
     /**
-     *
-     *
      * @param alarm The alarm that has to go off after the countdown is finished
      */
     public CountdownToAlarmStartEvent(Alarm alarm) {

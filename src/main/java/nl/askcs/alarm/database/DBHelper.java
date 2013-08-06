@@ -2,12 +2,15 @@ package nl.askcs.alarm.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import nl.askcs.alarm.R;
+import nl.askcs.alarm.models.Alarm;
+import nl.askcs.alarm.models.Helper;
+import nl.askcs.alarm.util.L;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -26,7 +29,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "askcs_alarm.db";
 
     // The database version.
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     // A map acting as a cache of DAO instances.
     private Map<Class, Dao> daoMap = null;
@@ -52,16 +55,16 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 
-        Log.d(TAG, "onCreate");
+        L.d("onCreate");
 
         try {
             for (Class<?> tableClass : DatabaseConfigUtil.CLASSES) {
-                Log.d(TAG, "creating a table for class: " + tableClass.getName());
+                L.d("creating a table for class: " + tableClass.getName());
                 TableUtils.createTable(connectionSource, tableClass);
             }
 
         } catch (SQLException e) {
-            Log.e(TAG, "Can't create database", e);
+            L.e("Can't create database", e);
             throw new RuntimeException(e);
         }
     }
@@ -78,7 +81,71 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
                           int oldVersion, int newVersion) {
 
-        throw new UnsupportedOperationException("onUpgrade(...) not implemented!");
+        L.d("Starting database upgrade from oldVersion ({0}) to newVersion ({1})", oldVersion, newVersion);
+
+        switch(newVersion) {
+            case 5:
+                if(oldVersion >= 1 && oldVersion <= 4) {
+                    try {
+                        TableUtils.dropTable(connectionSource, Alarm.class, false);
+                        TableUtils.dropTable(connectionSource, Helper.class, false);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    L.wtf("newVersion ({0}) recognized, but upgrading from oldVersion ({1}) not supported!", newVersion, oldVersion);
+                    throw new UnsupportedOperationException();
+                }
+                break;
+            case 4:
+                if(oldVersion >= 1 && oldVersion <= 3) {
+                    try {
+                        TableUtils.dropTable(connectionSource, Alarm.class, false);
+                        TableUtils.dropTable(connectionSource, Helper.class, false);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    L.wtf("newVersion ({0}) recognized, but upgrading from oldVersion ({1}) not supported!", newVersion, oldVersion);
+                    throw new UnsupportedOperationException();
+                }
+                break;
+            case 3:
+                if(oldVersion == 1 || oldVersion == 2) {
+                    try {
+                        TableUtils.dropTable(connectionSource, Alarm.class, false);
+                        TableUtils.dropTable(connectionSource, Helper.class, false);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    L.wtf("newVersion ({0}) recognized, but upgrading from oldVersion ({1}) not supported!", newVersion, oldVersion);
+                    throw new UnsupportedOperationException();
+                }
+                break;
+            case 2:
+                if(oldVersion == 1) {
+                    try {
+                        TableUtils.dropTable(connectionSource, Alarm.class, false);
+                        TableUtils.dropTable(connectionSource, Helper.class, false);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    L.wtf("newVersion ({0}) recognized, but upgrading from oldVersion ({1}) not supported!", newVersion, oldVersion);
+                    throw new UnsupportedOperationException();
+                }
+                break;
+            default:
+                L.wtf("upgrading to newVersion ({0}) not implemented!", newVersion);
+                throw new NotImplementedException();
+        }
+
+        L.d("Done upgrading database from oldVersion ({0}) to newVersion ({1})", oldVersion, newVersion);
     }
 
     /**
@@ -93,7 +160,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @SuppressWarnings("unchecked")
     public <M, I> Dao<M, I> getDao(Class<M> modelClass, Class<I> idClass) {
 
-        Log.d(TAG, "retrieving dao: Dao<" + modelClass + ", " + idClass + ">");
+        L.d("retrieving dao: Dao<" + modelClass + ", " + idClass + ">");
 
         Dao<M, I> dao = daoMap.get(modelClass);
 
@@ -107,7 +174,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
                 daoMap.put(modelClass, dao);
 
             } catch (SQLException e) {
-                Log.e(TAG, "Could not create a DAO for: " + modelClass, e);
+                L.e(e, "Could not create a DAO for: " + modelClass);
             }
         }
 

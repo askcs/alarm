@@ -1,20 +1,18 @@
 package nl.askcs.alarm.models;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 4-6-13
- * Time: 14:22
- * To change this template use File | Settings | File Templates.
+ * Model of a Helper
  */
+@DatabaseTable
 public class Helper {
 
     /**
      * ID of the helper
      */
-    @DatabaseField( id = true )
+    @DatabaseField(generatedId = true)
     private int id;
 
     /**
@@ -65,7 +63,13 @@ public class Helper {
     @DatabaseField
     private boolean canUseMessageFunctionality;
 
-    public Helper(){
+    /**
+     *
+     */
+    @DatabaseField( foreign = true, foreignAutoRefresh = true )
+    private Alarm alarm;
+
+    public Helper() {
         // Empty constructor needed by ORMLite
     }
 
@@ -151,5 +155,13 @@ public class Helper {
 
     public void setCanUseMessageFunctionality(boolean canUseMessageFunctionality) {
         this.canUseMessageFunctionality = canUseMessageFunctionality;
+    }
+
+    public Alarm getAlarm() {
+        return this.alarm;
+    }
+
+    public void setAlarm(Alarm alarm) {
+        this.alarm = alarm;
     }
 }

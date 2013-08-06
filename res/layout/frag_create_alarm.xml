@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="6dp">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:voice_control="http://leonjoosse.nl/leon"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
 
-    <TextView
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp">
+
+        <!-- Titel -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -14,35 +24,116 @@
             android:id="@+id/textView3"
             android:layout_gravity="left|center_vertical"/>
 
-    <EditText
+        <EditText
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:hint="Naam van het alarm"/>
+            android:hint="Naam van het alarm"
+            voice_control:id="1"
+            voice_control:trigger_keywords="@array/va_edit_alarm_alarm_title"
+            />
 
-    <TextView
+        <!-- Actieknop -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Actieknop"
-            android:id="@+id/textView"
             android:layout_gravity="left|center_vertical"
             android:layout_marginTop="6dp"/>
 
-    <Spinner
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
             android:layout_gravity="left|center_vertical"
-            android:entries="@string/abs__action_menu_overflow_description"/>
+            android:entries="@array/frag_create_alarm_action_button_available_actions"
 
-    <EditText
-            android:layout_width="match_parent"
+            />
+
+        <RelativeLayout
+            android:id="@+id/action_contact"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:hint="Deze kenmerken staan onder het kopje Bel 1 1 2 als"/>
+            android:layout_width="match_parent"
+            android:padding="6dp"
+            >
 
-    <TextView
+            <TextView
+                android:id="@+id/lbl_action_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Naam: "
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                />
+
+            <TextView
+                android:id="@+id/lbl_action_contact_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Telefoonnummer: "
+                android:layout_below="@id/lbl_action_contact_name"
+                />
+
+            <TextView
+                android:id="@+id/action_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_toRightOf="@id/lbl_action_contact_name"
+                />
+
+            <TextView
+                android:id="@+id/action_contact_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_toRightOf="@id/lbl_action_contact_phone"
+                android:layout_alignBaseline="@id/lbl_action_contact_phone"
+                />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/choose_contact"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Contactpersoon selecteren"
+            voice_control:id="5"
+            voice_control:trigger_keywords="(selecteer contactpersoon|contactpersoon selecteren|contactpersoon)"
+            />
+
+
+        <!-- Helpers -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Helpers"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="6dp"/>
+
+        <LinearLayout
+            android:id="@+id/helpers"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            >
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_helper"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Helper toevoegen"
+            android:drawableLeft="@drawable/ic_action_content_new"
+            voice_control:id="4"
+            voice_control:trigger_keywords="(helper toevoegen|voeg helper toe)"
+            />
+
+        <!-- Aanwijzingen -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -51,20 +142,27 @@
             android:layout_gravity="left|center_vertical"
             android:layout_marginTop="6dp"/>
 
-    <EditText
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/characteristics"
             android:layout_gravity="left|center_vertical"
-            android:hint="Geef de kenmerken op"/>
+            android:hint="Geef de kenmerken op"
+            voice_control:id="2"
+            voice_control:trigger_keywords="(kenmerken|geef de kenmerken op|geef kenmerken op)"
+            />
 
-    <EditText
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:hint="Geef de aanwijzingen op"/>
+            android:id="@+id/instructions"
+            android:hint="Geef de aanwijzingen op"
+            voice_control:id="3"
+            voice_control:trigger_keywords="(aanwijzingen|geef de aanwijzingen op|geef de aanwijzing op)"
+            />
 
-    <TextView
+        <!-- Beveiliging -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -72,27 +170,33 @@
             android:id="@+id/textView4"
             android:layout_gravity="left|center_vertical"/>
 
-    <CheckBox
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PIN code vereist om alarm te stoppen"
-            android:id="@+id/checkBox"
-            android:layout_gravity="left|center_vertical"/>
+            android:id="@+id/require_pin"
+            android:layout_gravity="left|center_vertical"
+            voice_control:id="7"
+            voice_control:trigger_keywords="(pin code|pincode)"
+            />
 
-    <CheckBox
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Foutief alarm vooraf  annuleren "
-            android:id="@+id/checkBox2"
+            android:id="@+id/can_cancel_alarm"
             android:layout_gravity="left|center_vertical"
-            android:checked="false"/>
+            android:checked="false"
+            voice_control:id="8"
+            voice_control:trigger_keywords="foutief alarm vooraf annuleren"
+            />
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical">
 
-        <EditText
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberSigned"
@@ -101,32 +205,42 @@
                 android:layout_gravity="left|center_vertical"
                 android:text="5"/>
 
-        <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Aantal seconden voordat alarm afgaat"
                 android:id="@+id/textView5"
                 android:gravity="center_vertical"/>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:weightSum="1">-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:text="Voorbeeld"-->
+                <!--android:id="@+id/show_example"-->
+                <!--android:layout_weight="0.5"/>-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:text="Opslaan"-->
+                <!--android:id="@+id/save"-->
+                <!--android:layout_weight="0.5"/>-->
+        <!--</LinearLayout>-->
+
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1">
+            android:text="Opslaan"
+            android:id="@+id/save"
+            voice_control:id="6"
+            voice_control:trigger_keywords="opslaan"
+            />
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:text="Voorbeeld"
-                android:id="@+id/button"
-                android:layout_weight="0.5"/>
-
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:text="Opslaan"
-                android:id="@+id/button2"
-                android:layout_weight="0.5"/>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

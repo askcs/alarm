@@ -1,7 +1,6 @@
 package nl.askcs.alarm.ui.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import nl.askcs.alarm.R;
 import nl.askcs.alarm.models.Helper;
+import nl.askcs.alarm.util.L;
 
 import java.util.ArrayList;
 
@@ -19,11 +19,11 @@ import java.util.ArrayList;
  * {@link android.widget.ListView}. Subscribe to the {@link OnHelperActionButtonClickListener} using
  * {@code HelperListAdapter.setOnHelperActionButtonClickListener } to receive click events.
  * on the call and message buttons.
- * Created with IntelliJ IDEA.
+ *
  * @author Leon
- * Date: 11-6-13
- * Time: 16:05
- * To change this template use File | Settings | File Templates.
+ *         Date: 11-6-13
+ *         Time: 16:05
+ *         To change this template use File | Settings | File Templates.
  */
 public class HelperListAdapter extends BaseAdapter {
 
@@ -77,7 +77,7 @@ public class HelperListAdapter extends BaseAdapter {
         ViewHolder holder;
         Helper helper = mHelpers.get(position);
 
-        if(convertView == null) {
+        if (convertView == null) {
 
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.helper_list_item, null);
@@ -100,7 +100,7 @@ public class HelperListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.avatar.setImageResource(android.R.drawable.star_big_on);
+        holder.avatar.setImageResource(R.drawable.ic_action_social_person);
         holder.name.setText(helper.getName());
         holder.estimated_distance.setText(Float.toString(helper.getDistanceToUser()) + " km");
         holder.estimated_time.setText(Float.toString(helper.getTravelTimeToUser() / 3600) + " min");
@@ -124,18 +124,18 @@ public class HelperListAdapter extends BaseAdapter {
 
         @Override
         public void onClick(View v) {
-            if(v.getTag() instanceof Integer) {
+            if (v.getTag() instanceof Integer) {
                 try {
                     int positionInList = (Integer) v.getTag();
 
-                    if(mListener != null) {
+                    if (mListener != null) {
                         mListener.onCallButtonClick(mHelpers.get(positionInList));
                     } else {
-                        Log.i(TAG, "OnHelperActionButtonClickListener has no subscriber! Subscribe using HelperListAdapter.setOnHelperActionButtonClickListener");
+                        L.i("OnHelperActionButtonClickListener has no subscriber! Subscribe using HelperListAdapter.setOnHelperActionButtonClickListener");
                     }
                 } catch (ClassCastException e) {
                     e.printStackTrace();
-                    Log.e(TAG, "messageButtonListener triggered, but view has no integer in its view.getTag()");
+                    L.e("messageButtonListener triggered, but view has no integer in its view.getTag()");
                 }
             }
         }
@@ -146,18 +146,18 @@ public class HelperListAdapter extends BaseAdapter {
         @Override
         public void onClick(View v) {
 
-            if(v.getTag() instanceof Integer) {
+            if (v.getTag() instanceof Integer) {
                 try {
                     int positionInList = (Integer) v.getTag();
 
-                    if(mListener != null && mHelpers != null) {
+                    if (mListener != null && mHelpers != null) {
                         mListener.onMessageButtonClick(mHelpers.get(positionInList));
                     } else {
-                        Log.i(TAG, "OnHelperActionButtonClickListener has no subscriber! Subscribe using HelperListAdapter.setOnHelperActionButtonClickListener");
+                        L.i("OnHelperActionButtonClickListener has no subscriber! Subscribe using HelperListAdapter.setOnHelperActionButtonClickListener");
                     }
                 } catch (ClassCastException e) {
                     e.printStackTrace();
-                    Log.e(TAG, "messageButtonListener triggered, but view has no integer in its view.getTag()");
+                    L.e("messageButtonListener triggered, but view has no integer in its view.getTag()");
                 }
             }
         }

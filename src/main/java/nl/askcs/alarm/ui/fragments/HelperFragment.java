@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
+/**
+ * This Fragment should display all Helpers. Currently displays a list of dummy Helpers.
+ */
 public class HelperFragment extends BaseTabListFragment {
 
     private HelperListAdapter mAdapter;

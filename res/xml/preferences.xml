@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- account information -->
+    <PreferenceScreen android:key="profile" android:title="Profielbeheer" android:summary="Ingelogd als Leon Joosse" android:enabled="false" >
+        <!--<Preference android:title="Ingelogd als Leon Joosse" android:enabled="false" />-->
+        <!--<Preference android:title="Profielfoto" android:enabled="false" />-->
+        <!--<Preference android:title="Uitloggen" android:enabled="false" />-->
+    </PreferenceScreen>
+
+    <PreferenceCategory android:title="Beveiliging">
+        <EditTextPreference
+            android:dialogMessage="De PIN code indien u zelf een alarm wil annuleren. Het is mogelijk niet wenselijk dat andere gebruikers het alarm annuleren. Zie Menu → Uitleg voor meer informatie"
+            android:dialogTitle="PIN code instellen"
+            android:summary="PIN code bij het annuleren van alarmen door u. Zie Menu → Uitleg voor meer informatie."
+            android:title="PIN code" />
+    </PreferenceCategory>
+
+    <!-- Alarmen -->
+    <PreferenceCategory android:title="Alarmen" android:key="alarms" >
+
+    </PreferenceCategory>
+
+    <Preference
+        android:icon="@drawable/ic_action_content_new"
+        android:title="Nieuw alarm toevoegen..."
+        android:key="new_alarm"
+        />
+
+</PreferenceScreen>

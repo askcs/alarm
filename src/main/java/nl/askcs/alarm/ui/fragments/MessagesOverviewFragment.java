@@ -7,11 +7,7 @@ import nl.askcs.alarm.R;
 import static nl.askcs.alarm.ui.adapters.TabFragmentAdapter.ARG_TAB_TITLE;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Leon
- * Date: 3-6-13
- * Time: 13:26
- * To change this template use File | Settings | File Templates.
+ * This Fragment should display all messages. No implementation yet.
  */
 public class MessagesOverviewFragment extends BaseTabListFragment {
 

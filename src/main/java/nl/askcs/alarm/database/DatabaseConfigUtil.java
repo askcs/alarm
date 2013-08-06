@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 
 /**
  * A utility class to create ORMLite config files.
- *
+ * <p/>
  * For reference, the following types can be used in the model classes:
- *
+ * <p/>
  * ORMLite             | Java
  * --------------------+---------------
  * STRING              | String
@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  * DOUBLE              | double
  * SERIALIZABLE        | Serializable
  * BIG_DECIMAL_NUMERIC | BigDecimal
- *
+ * <p/>
  * http://ormlite.com/data_types.shtml
  */
 public class DatabaseConfigUtil extends OrmLiteConfigUtil {
@@ -56,7 +56,6 @@ public class DatabaseConfigUtil extends OrmLiteConfigUtil {
      * introduced to the code base.
      *
      * @param args command line parameters (which are ignored).
-     *
      * @throws IOException  when the config file cannot be written to `res/raw/`.
      * @throws SQLException when one of the Class-es in `CLASSES` contains invalid
      *                      SQL annotations.
@@ -66,17 +65,16 @@ public class DatabaseConfigUtil extends OrmLiteConfigUtil {
         File rawFolder = new File("res/raw");
 
         // Check is `res/raw` exists ...
-        if(!rawFolder.exists()) {
+        if (!rawFolder.exists()) {
 
             // ... if not create it.
             boolean rawCreated = rawFolder.mkdirs();
 
-            if(!rawCreated) {
+            if (!rawCreated) {
                 logger.warning("could not create a 'raw' folder inside 'res/'" +
                         " from DatabaseConfigUtil: no DB-config file created!");
                 System.exit(1);
-            }
-            else {
+            } else {
                 logger.info("created folder `res/raw/`");
             }
         }

@@ -28,7 +28,47 @@
                 android:contentDescription="Alarm Button"
                 android:id="@+id/alarm"
                 voice_control:trigger_keywords="Alarm"
+                voice_control:id="123"
+                android:visibility="gone"
                 />
+            <LinearLayout
+                android:id="@+id/add_new_alarm"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:background="@color/alarm_mine_shaft"
+                android:padding="15dp"
+                >
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Geen alarm ingesteld"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20dp"
+                    android:textSize="30sp"
+                    android:textColor="@color/alarm_ecru_white"
+                    android:drawableLeft="@android:drawable/ic_dialog_alert"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Klik op instellingen om een alarm te configureren"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/alarm_ecru_white"
+                    />
+                <Button
+                    android:id="@+id/button_new_alarm_from_initiate_alarm"
+                    android:text="Instellingen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Alarm.Button.Red"
+                    android:layout_marginBottom="5dp"
+                    />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +96,8 @@
                 android:layout_weight="1"
                 android:text="Bel 112"
                 style="@style/Widget.Alarm.Button.Taupe"
-                voice_control:trigger_keywords="bel 112"
+                voice_control:trigger_keywords="bel een een twee"
+                voice_control:id="112"
                 />
         </LinearLayout>
     </LinearLayout>

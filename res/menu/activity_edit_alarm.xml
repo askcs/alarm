@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/speak"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_device_access_mic"
+        android:title="Voice Control"
+        />
+</menu>
