@@ -34,62 +34,62 @@ public class L {
 
     public static int v(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.v(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.v(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int v(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.v(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.v(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     public static int d(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.d(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.d(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int d(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.d(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.d(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     public static int i(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.i(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.i(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int i(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.i(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.i(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     public static int w(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.w(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.w(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int w(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.w(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.w(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     public static int e(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.e(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.e(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int e(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.e(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.e(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     public static int wtf(String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.wtf(createTag(), form.format(message, args == null ? NO_ARGS : args));
+        return Log.wtf(createTag(), form.format(args == null ? NO_ARGS : args));
     }
 
     public static int wtf(Throwable throwable, String message, Object... args) {
         MessageFormat form = new MessageFormat(message);
-        return Log.wtf(createTag(), form.format(message, args == null ? NO_ARGS : args), throwable);
+        return Log.wtf(createTag(), form.format(args == null ? NO_ARGS : args), throwable);
     }
 
     /**
